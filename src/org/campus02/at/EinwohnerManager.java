@@ -12,6 +12,8 @@ public class EinwohnerManager {
     public static void main(String[] args) throws DataFileException {
         ArrayList<Einwohner> loadedEinwohner = new EinwohnerManager().load();
 
+        Collections.sort(loadedEinwohner);
+
         for (Einwohner einwohner : loadedEinwohner) {
             System.out.println(einwohner);
         }
