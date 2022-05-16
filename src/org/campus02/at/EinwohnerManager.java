@@ -5,12 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class EinwohnerManager {
 
     public static void main(String[] args) throws DataFileException {
         ArrayList<Einwohner> loadedEinwohner = new EinwohnerManager().load();
-        System.out.println(loadedEinwohner.get(188));
+
+        Collections.sort(loadedEinwohner, new EinwohnerComparator());
+        for (Einwohner einwohner : loadedEinwohner) {
+            System.out.println(einwohner);
+        }
+
     }
 
     public ArrayList<Einwohner> load() throws DataFileException {
